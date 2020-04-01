@@ -10,8 +10,6 @@ public class Script
 {
 	public void ScriptMain(ScriptInterface bot)
 	{
-        // Setup options.
-        // Recommend that these two options are always enabled.
         bot.Options.SafeTimings = true;
         bot.Options.RestPackets = true;
         
