@@ -11,5 +11,7 @@
 <a href="11 Events">11. Events</a><br>
 <a href="12 Packets">12. Packets</a><br>
 <a href="13 Examples">13. Examples</a><br>
+<a href="14 Script Options">14. Script Options</a><br>
+<a href="15 Plugins">15. Plugins</a><br>
 <br>
 Don't use the drop grabber (bot.Drops), it's dogshit :)
