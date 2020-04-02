@@ -19,6 +19,8 @@ The following methods can be used to programatically manage skills. The method's
 
 `LoadSkills(string xml)` - Loads a skill definition XML file which was created by the UI. `xml` is the path to the definition file which can be absolute or relative to the running directory of the bot.
 
+`StartSkills(string xml)` - Loads a skill definition XML file and then restarts the skill timer.
+
 #### Properties
 The following properties can be modified to change the behaviour of the skill timer thread:
 

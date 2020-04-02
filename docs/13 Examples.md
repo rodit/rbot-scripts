@@ -10,13 +10,14 @@ public class Script
 {
 	public void ScriptMain(ScriptInterface bot)
 	{
+        // Setup options
+        // It is recommended that these two options are always enabled.
         bot.Options.SafeTimings = true;
         bot.Options.RestPackets = true;
         
         // Setup skills
-        // This can also be done in the skills UI, but bot.Skills.StartTimer() must still be called.
-        bot.Skills.LoadSkills("Skills/VoidHighlord.xml");
-        bot.Skills.StartTimer();
+        // This can also be done in the skills UI.
+        bot.Skills.StartSkills("Skills/VoidHighlord.xml");
 
         // Load the bank.
         bot.Player.LoadBank();

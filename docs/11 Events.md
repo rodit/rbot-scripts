@@ -12,6 +12,7 @@ The following events can be listened for:
 - `CellChanged(string map, string cell, string pad)` - Triggered when the cell is changed.
 - `ReloginTriggered(bool kicked)` - Triggered when a relogin is triggered.
 - `ExtensionPacketReceived(dynamic packet)` - Triggered when an extension packet is received from the server.
+- `PlayerAFK()` - Triggered when the player goes AFK.
 
 Event handlers are cleared when a script stops or starts. To manually clear event handlers use `ScriptEvents#ClearHandlers()`, although this is typically not necessary.
 

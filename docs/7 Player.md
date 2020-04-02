@@ -3,6 +3,12 @@ Player
 Most of the bot's functionality is called through `ScriptInterface#Player`. There are many methods for movement, combat and properties that can be examined.
 
 #### Properties
+`int ID` - The id of the player. This is useful for building packets.
+
+`int XP` - The player's current XP.
+
+`int RequiredXP` - The XP required for the player to level up.
+
 `string Cell` - The name of the cell the player is currently in.
 
 `string Pad` - The name of the pad that the player spawned from.
@@ -52,6 +58,10 @@ Most of the bot's functionality is called through `ScriptInterface#Player`. Ther
 `int WalkSpeed` - Gets or sets the player's walk speed.
 
 `int Scale` - Gets or sets the player's avatar drawing scale (client side).
+
+`List<Faction> Factions` - Gets a list of the player's factions and information about them.
+
+`Monster Target` - Gets the player's current target. Returns null if no monster target is selected.
 
 ### Methods
 `void Pickup(params string[] items)` - Picks up the specified items.
