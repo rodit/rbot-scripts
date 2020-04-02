@@ -31,6 +31,9 @@ Other fields have also been added to `ScriptPlayer`:
 
 See `7. Player` for more information.
 
+#### Map Player Information
+You can retrieve information about players in the current map and current cell with `ScriptMap#Players` and `ScriptMap#CellPlayers`. See `9. Map` for more information.
+
 #### Hunt Changes
 There is a new option `ScriptOptions#HuntPriority` which allows for some control over how targets are chosen when hunting. This option takes any of the following values from the `HuntPriorities` enum:
 - `HuntPriorities.None` - Default hunting behaviour - selects based on the game's order of monsters.
