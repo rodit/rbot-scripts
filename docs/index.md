@@ -14,4 +14,6 @@
 <a href="14 Script Options">14. Script Options</a><br>
 <a href="15 Plugins">15. Plugins</a><br>
 <br>
+<a href="Changes">Changelog</a><br>
+<br>
 Don't use the drop grabber (bot.Drops), it's dogshit :)
