@@ -1,4 +1,48 @@
 ## Changes
+### Version 2.2.1
+---
+#### Script Options Changes
+The script options window is now resizable. The options no longer bug - options are not endlessly re-added when reopening the options window as was the case previously.
+
+#### Patchable Game Client
+The game client and all the SWFs used by the game are now loaded through a proxy which runs alongside RBot (and only intercepts HTTP traffic from the game; i.e. it does not intercept any traffic from other applications on your computer). This required 2 additional libraries (EasyHook to hook the WinINet initialization and force just RBot to use the required proxy, and Titanium Web Proxy which is used for the proxy server).
+
+There is now a `patch.txt` file next to the RBot.exe which can be used to patch game client SWF. Already included is a patch that disables client sided quest checks when accepting, as well as one which maximizes client haste. To disable the proxy and game patching, just add
+
+```autoit
+; disabled
+```
+to the top of the `patch.txt` file.
+
+The syntax of patches is as follows:
+
+```autoit
+[SWF URL]
+[N1:]<find>=<replace>
+[N2:]<find2>=<replace2>
+; ... as many patches for this SWF as you want.
+[Different SWF URL]
+[N3:]<find3>=<replace3>
+```
+
+where `Nx` is the number of times to run the patch, `find` is the hexadecimal string representation of the bytes to find, and `replace` is the hexadecimal string representation of the bytes to replace the found bytes with. The `N:` is entirely optional. If ommited, the patch will run once.
+
+When patching, the SWF is decompressed so patches can be made equivalent to modifying the actionscript bytecode contained in the SWF. For example, adding the following line to `patch.txt`:
+
+```
+3:66b44366cf4324ff=66b44366cf432f0c
+```
+
+causes the left hand set of bytes (`66b44366cf4324ff`) to be replaced by the right hand set of bytes (`66b44366cf432f0c`) 3 times. This particular bytecode change replaces the player's haste stat with 50% in the 3 calculations it's used with.
+
+#### Quest Changes
+I have made some changes to how quest information is gathered from the game. I have tested these changes less extensively than I should have so please keep a copy of 2.2 somewhere just in case they're broken (although I'm pretty sure it's all fine).
+
+The changes are completely backwards compatiable so no changes should be required in scripts (unless you, for some reason, used the drop rates of the rewards of the quest in your script).
+
+#### Other Changes
+As usual, I have probably made other changes/features that I have forgotten about.
+
 ### Version 2.2
 ---
 #### ScriptInterface Changes
