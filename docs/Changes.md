@@ -1,4 +1,43 @@
 ## Changes
+### Version 2.3
+---
+#### Skill Patterns
+There is now a way to define ordered skill patterns using skill pattern definition files. They are very simple and contain 3 commands:
+
+- `repeat <n>`: Repeats a sublist of commands `n` times.
+- `pattern <pattern>`: Executes the skill indexes in `pattern` in the given order.
+- `end`: Ends the current repeat sublist. Note that nested repeats are supported.
+
+For example, the skill pattern definition file for Immortal Chronomancer might look like this:
+
+```
+repeat 7
+	pattern 14
+end
+pattern 23
+repeat 5
+	pattern 41
+end
+pattern 423
+```
+
+To use a skill pattern definition, simply call `ScriptSkills#StartPattern`:
+
+```csharp
+bot.Skills.StartPattern("Skills/ic.def");
+```
+
+This will override any other options set up with the skill timer (including manually added skills and loaded xml definitions). To clear the loaded skill pattern, call `ScriptSkills#ClearPattern`:
+
+```csharp
+bot.Skills.ClearPattern();
+```
+
+**Note:** The execution state of skill patterns are reset when the player has no target (i.e. the skill timer starts again from the beginning of the pattern definition file when the player loses their target, and targets another monster).
+
+#### Update Checker
+RBot now has the ability to check for updates using github, which will now be my primary release distribution method. This feature can be found at `Help->About` on the main toolbar. Note that you can enable `Check for Update on Start`; this will notify you when you launch RBot if it has an available update. The notification will also contain a summary of the download, and pressing `Yes` will open the download link in your browser.
+
 ### Version 2.2.1
 ---
 #### Script Options Changes
